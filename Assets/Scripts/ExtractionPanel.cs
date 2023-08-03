@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class ExtractionPanel : MonoBehaviour, IExtraction
 {
+    [Inject] PlayerResources _playerResources;
+
     void Start()
     {
         
@@ -11,6 +14,6 @@ public class ExtractionPanel : MonoBehaviour, IExtraction
 
     public void Extraction()
     {
-        Debug.Log("gay");
+        _playerResources.PlusBit(1 + PlayerPrefs.GetInt("NowClickCoast"));
     }
 }
